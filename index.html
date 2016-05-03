@@ -8,59 +8,44 @@
 
 <body ng-controller="ImageController as ic" style="background: url({{ic.imageData.url}}) no-repeat center center fixed; background-size:cover">
 
-
 	<div ng-controller="WeatherController as wc">
 		<div class="container">
-					<h1>{{wc.weather.main.temp * 9/5 - 459.67+15| number:0}}°</h1>
-					
-					
+			<h2>{{wc.weather.name}}</h2>
+			<h1>{{wc.weather.main.temp * 9/5 - 459.67+15| number:0}}°</h1>
+		</div>
 
-			<div class="row">
+	</div>
 
-				<div class="col-md-12">
+	<div class="button-group" ng-controller="TodoController as tc">
 
-					<h2>{{wc.weather.name}}</h2>
+		<form ng-submit="tc.todoAdd()">
+			<input type="text" ng-model="tc.todoInput" size="50" placeholder="Add New">
+			<input type="submit" value="Add New">
+		</form>
+		<br>
 
-				</div>
+		<div ng-repeat="x in todoList">
+			<input type="checkbox" ng-model="x.done"> <span ng-bind="x.todoText"></span>
+		</div>
+
+			<ul>{{tc.todoList}}</ul>
+		<p><button ng-click="remove()">Remove marked</button></p>
+
+		<div class="hidden-md-6" ng-controller="QuoteController as qc">
+
+
+			<div class="visible-md-6">
+
+				<p>
+					<h3 ng-bind-html="qc.quote.quote"></h3></p>
+
+				<p>
+					<h3 ng-bind-html="qc.quote.author"></h3></p>
 
 			</div>
 
 		</div>
 
-	</div>
-
-	<div class="row">
-
-		<div class="hidden-md-4" ng-controller="QuoteController as qc">
-
-			<div class="visible-md-4">
-
-				<div class="visible-md-4">
-					
-					<p><h3 ng-bind-html="qc.quote.quote"></h3></p>
-					<p><h3 ng-bind-html="qc.quote.author"></h3></p>
-
-					
-						
-
-
-				</div>
-
-			</div>
-
-		</div>
-
-	</div>
-	<div class="row">
-
-
-
-		<div class="col-md-4" ng-controller="TodoController as tc">
-			<h4> {{tc.todos}} </h4>
-
-		</div>
-
-	</div>
 
 
 
@@ -69,19 +54,20 @@
 
 
 
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.5.5/angular-sanitize.js"></script>
-	<script src="app/init.js"></script>
-	<script src="app/components/weather/weather-service.js"></script>
-	<script src="app/components/image/image-service.js"></script>
-	<script src="app/components/quote/quote-service.js"></script>
-	<script src="app/components/todo/todo-service.js"></script>
 
-	<!--Load your scripts below-->
-	<script src="app/components/weather/weather-controller.js"></script>
-	<script src="app/components/image/image-controller.js"></script>
-	<script src="app/components/quote/quote-controller.js"></script>
-	<script src="app/components/todo/todo-controller.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.5.5/angular-sanitize.js"></script>
+		<script src="app/init.js"></script>
+		<script src="app/components/weather/weather-service.js"></script>
+		<script src="app/components/image/image-service.js"></script>
+		<script src="app/components/quote/quote-service.js"></script>
+		<script src="app/components/todo/todo-service.js"></script>
+
+		<!--Load your scripts below-->
+		<script src="app/components/weather/weather-controller.js"></script>
+		<script src="app/components/image/image-controller.js"></script>
+		<script src="app/components/quote/quote-controller.js"></script>
+		<script src="app/components/todo/todo-controller.js"></script>
 
 </body>
 
