@@ -12,7 +12,7 @@
 	<div ng-controller="WeatherController as wc">
 		<div class="container">
 					<h1>{{wc.weather.main.temp * 9/5 - 459.67+15| number:0}}°</h1>
-					<h5>{{wc.weather.wind.speed}}</h5>
+					
 					
 
 			<div class="row">
@@ -36,9 +36,12 @@
 			<div class="visible-md-4">
 
 				<div class="visible-md-4">
+					
+					<p><h3 ng-bind-html="qc.quote.quote"></h3></p>
+					<p><h3 ng-bind-html="qc.quote.author"></h3></p>
 
-					<p>
-						<h3 ng-bind-html="qc.quote.quote.author"></h3></p>
+					
+						
 
 
 				</div>
