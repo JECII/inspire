@@ -27,13 +27,13 @@
 		<div ng-repeat="x in todoList">
 			<input type="checkbox" ng-model="x.done"> <span ng-bind="x.todoText"></span>
 		</div>
+
 		<ul>
-			
-			<li ng-repeat="tc.todoList">
-				{{tc.todoList}}
-			
-			</li>
+
+			<li>{{tc.todoList}}</li>
+
 		</ul>
+
 		<p><button ng-click="remove()">Remove marked</button></p>
 
 		<div class="hidden-md-6" ng-controller="QuoteController as qc">
