@@ -6,24 +6,21 @@
 	<link rel="stylesheet" href="assets/css/style.css">
 </head>
 
-<body  ng-controller="ImageController as ic" style="background: url({{ic.imageData.url}}) no-repeat center center fixed; background-size:cover">
+<body ng-controller="ImageController as ic" style="background: url({{ic.imageData.url}}) no-repeat center center fixed; background-size:cover">
 
-	<!--<div class="header">-->
-
-
-
-	<!--</div>-->
 
 	<div ng-controller="WeatherController as wc">
 		<div class="container">
+					<h1>{{wc.weather.main.temp * 9/5 - 459.67+15| number:0}}°</h1>
+					<h5>{{wc.weather.wind.speed}}</h5>
+					
 
 			<div class="row">
 
 				<div class="col-md-12">
 
 					<h2>{{wc.weather.name}}</h2>
-		
-				<h1>{{wc.weather.main.temp * 9/5 - 459.67| number:0}}°</h1>
+
 				</div>
 
 			</div>
@@ -40,7 +37,8 @@
 
 				<div class="visible-md-4">
 
-					<p><h3 ng-bind-html="qc.quote.quote"></h3></p>
+					<p>
+						<h3 ng-bind-html="qc.quote.quote.author"></h3></p>
 
 
 				</div>
