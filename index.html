@@ -18,7 +18,7 @@
 
 	<div class="button-group" ng-controller="TodoController as tc">
 
-		<form ng-submit="tc.todoAdd(newItem)">
+		<form ng-submit="tc.todoAdd(tc.todoInput)">
 			<input type="text" ng-model="tc.todoInput" size="50" placeholder="Add New">
 			<button type="submit">Add Item</button>
 		</form>
@@ -27,8 +27,13 @@
 		<div ng-repeat="x in todoList">
 			<input type="checkbox" ng-model="x.done"> <span ng-bind="x.todoText"></span>
 		</div>
-
-			<ul><b><em>{{tc.todoList}}</em></b></ul>
+		<ul>
+			
+			<li ng-repeat="tc.todoList">
+				{{tc.todoList}}
+			
+			</li>
+		</ul>
 		<p><button ng-click="remove()">Remove marked</button></p>
 
 		<div class="hidden-md-6" ng-controller="QuoteController as qc">
