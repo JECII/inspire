@@ -24,17 +24,13 @@
 		</form>
 		<br>
 
-		<div ng-repeat="x in todoList">
-			<input type="checkbox" ng-model="x.done"> <span ng-bind="x.todoText"></span>
+		<div ng-repeat="x in tc.todoList">
+			<input type="checkbox" ng-click="x.done =  !x.done">
+		{{x.todo}}
 		</div>
 
-		<ul>
 
-			<li>{{tc.todoList}}</li>
-
-		</ul>
-
-		<p><button ng-click="remove()">Remove marked</button></p>
+		<p><button ng-click="tc.remove()">Remove marked</button></p>
 
 		<div class="hidden-md-6" ng-controller="QuoteController as qc">
 
